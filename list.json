@@ -1,0 +1,6 @@
+[
+  {"id": 1, "name": "Paul Davidson", "age": 65, "job": "Retired", "parent": null },
+  {"id": 2, "name": "Sheila Davidson", "age": 60, "job": "Stylist", "parent": null },
+  {"id": 3, "name": "Andrew Davidson", "age": 65, "job": "Retired", "parent": [1, 2] },
+  {"id": 4, "name": "Steve Davidson", "age": 65, "job": "Retired", "parent": [1, 2] }
+]

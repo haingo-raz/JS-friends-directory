@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Directory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Main app -->
+    <div class="container">
+        <div class="bg-primary row my-3 py-2 px-4">
+            <div>
+               <button>Name</button>
+                <button>Job</button>
+                <button>Age</button> 
+            </div>
+            
+            <div class="row ml-auto">
+                <input type="text">
+                <i class="fa fa-search"></i>                    
+            </div>
+        </div>
+
+        <div class="bg-primary py-2 px-4" id="family-container">
+
+            <!-- Mapped cards -->
+
+
+        </div>
+    </div>
+</body>
+<script>
+    const familyList = [
+        {"id": 1, "name": "Paul Davidson", "age": 65, "job": "Retired", "parent": null },
+        {"id": 2, "name": "Sheila Davidson", "age": 60, "job": "Stylist", "parent": null },
+        {"id": 3, "name": "Andrew Davidson", "age": 38, "job": "Teller", "parent": [1, 2] },
+        {"id": 4, "name": "Steve Davidson", "age": 36, "job": "CEO", "parent": [1, 2] }
+    ]
+
+    document.getElementById('family-container').innerHTML = familyList.map(family => 
+    `
+    <div class="card">
+        <div class="card-body row">
+            <div>
+                <h5 class="card-title">
+                    ${family.name}
+                </h5>
+                <p class="card-text">
+                    ${family.job}
+                </p>
+            </div>
+            
+            <div class="row ml-auto">
+                <p class="card-text col-12">
+                    ${family.age}
+                </p>
+                <div class="">
+                    <button>Minimize</button>
+                    <button>Delete</button>
+                </div> 
+            </div>
+        </div>
+    </div>
+    `
+    )
+</script>
+</html>
