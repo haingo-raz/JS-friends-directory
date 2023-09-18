@@ -12,7 +12,7 @@
     <div class="container">
         <div class="bg-primary row my-3 py-2 px-4">
             <div>
-               <button>Name</button>
+               <button onclick="sortByName(familyList)">Name</button>
                 <button>Job</button>
                 <button>Age</button> 
             </div>
@@ -39,31 +39,46 @@
         {"id": 4, "name": "Steve Davidson", "age": 36, "job": "CEO", "parent": [1, 2] }
     ]
 
-    document.getElementById('family-container').innerHTML = familyList.map(family => 
-    `
-    <div class="card">
-        <div class="card-body row">
-            <div>
-                <h5 class="card-title">
-                    ${family.name}
-                </h5>
-                <p class="card-text">
-                    ${family.job}
-                </p>
-            </div>
-            
-            <div class="row ml-auto">
-                <p class="card-text col-12">
-                    ${family.age}
-                </p>
-                <div class="">
-                    <button>Minimize</button>
-                    <button>Delete</button>
-                </div> 
+    function displayFamilyList() {
+       document.getElementById('family-container').innerHTML = familyList.map(family => 
+        `
+        <div class="card">
+            <div class="card-body row">
+                <div>
+                    <h5 class="card-title">
+                        ${family.name}
+                    </h5>
+                    <p class="card-text">
+                        ${family.job}
+                    </p>
+                </div>
+                
+                <div class="row ml-auto">
+                    <p class="card-text col-12">
+                        ${family.age}
+                    </p>
+                    <div class="">
+                        <button>Minimize</button>
+                        <button>Delete</button>
+                    </div> 
+                </div>
             </div>
         </div>
-    </div>
-    `
-    )
+        `
+        ) 
+    }
+
+    displayFamilyList()
+    
+    let nameSorted = false
+
+    function sortByName(arrayToSort) {
+        if (nameSorted === true) {
+            arrayToSort.sort((a, b) => b.name.localeCompare(a.name))
+        }
+        else arrayToSort.sort((a, b) => a.name.localeCompare(b.name)) // string comparison
+        nameSorted = !nameSorted
+        displayFamilyList()
+    }
 </script>
 </html>
