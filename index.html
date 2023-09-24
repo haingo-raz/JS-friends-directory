@@ -12,9 +12,9 @@
     <div class="container">
         <div class="bg-primary row my-3 py-2 px-4">
             <div>
-               <button onclick="sortByName(familyList)">Name</button>
+               <button onclick="sortByStringDescription(familyList)">Name</button>
                 <button>Job</button>
-                <button>Age</button> 
+                <button onclick="sortByAge(familyList)">Age</button> 
             </div>
             
             <div class="row ml-auto">
@@ -72,12 +72,22 @@
     
     let nameSorted = false
 
-    function sortByName(arrayToSort) {
+    // Sort the family members by name
+    function sortByStringDescription(arrayToSort) {
         if (nameSorted === true) {
             arrayToSort.sort((a, b) => b.name.localeCompare(a.name))
         }
         else arrayToSort.sort((a, b) => a.name.localeCompare(b.name)) // string comparison
         nameSorted = !nameSorted
+        displayFamilyList()
+    }
+
+    let ageSorted = false
+
+    // Sort the family member by age
+    function sortByAge(arrayToSort){
+        ageSorted? arrayToSort.sort((a, b) => b.age - a.age) : arrayToSort.sort((a, b) => a.age - b.age)
+        ageSorted = !ageSorted
         displayFamilyList()
     }
 </script>
