@@ -45,11 +45,12 @@
                         <h3>Add / Edit a new friend</h3>
                         <form>
                             <label for="fname">Name</label>
-                            <input type="text" id="fname" name="fname" required><br/>
+                            <input type="text" id="fname" name="fname" required/><br/>
     
                             <label for="birthday">Birthday</label>
-                            <input type="date" id="birthday" name="birthday" required><br/>
+                            <input type="date" id="birthday" name="birthday" required/><br/>
                             <button type="button" class="btn btn-info" onclick={submitFriendForm()}>Add a new friend</button>
+                            <b><p id="create-update-feedback"></p></b>
                         </form>
                     </div>
 
@@ -58,11 +59,26 @@
                     </div>
 
                     <div id="delete">
-                        <h4>Delete by name</h4>
-                        <label for="delname">Enter name:</label>
-                        <input type="text" id="delname" name="delname" required>
-                        <button onclick={deleteByName()}>Delete</button>
-                        <b><p id="delete-feedback"></p></b>
+                        <div>
+                            <h4>find() & filter()</h4>
+                            <div class="border w-50">
+                                <h5>Delete by name</h5>
+                                <label for="delname">Enter name:</label>
+                                <input type="text" id="delname" name="delname" required>
+                                <button onclick={deleteByName()}>Delete</button>
+                                <b><p id="delete-feedback"></p></b>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>splice()</h4>
+                            <div class="border w-50">
+                                <h5>Delete by index</h5>
+                                <label for="delindex">Enter the index:</label>
+                                <input type="number" id="delindex" name="delindex" required>
+                                <button onclick={deleteByIndex()}>Delete</button>
+                                <b><p id="delete-feedback-index"></p></b>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

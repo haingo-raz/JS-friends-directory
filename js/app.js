@@ -6,26 +6,27 @@ function saveFriendsList(friendsList){
 }
 
 function displayFriendsList() {
-    document.getElementById('friend-container').innerHTML = friendsList.map(friend => 
+    document.getElementById('friend-container').innerHTML = friendsList.map((friend, index) => 
      `
      <div class="card">
          <div class="card-body row">
-             <div>
+            <p>${index + 1})&nbsp;</p>
+            <div class="mr-4">
                  <h5 class="card-title">
                      ${friend.name}
                  </h5>
                  <p class="card-text">
                      ${friend.birthday}
                  </p>
-             </div>
+            </div>
              
-             <div class="row ml-auto">
-                 <p class="card-text col-12">
+            <div class="row ml-auto">
+                <p class="card-text col-12">
                      ${friend.age}
-                 </p>
-                 <div class="">
-                     <button>Edit</button>
-                     <button>Delete</button>
+                </p>
+                <div class="">
+                     <button disabled>Edit</button>
+                     <button onclick={deleteCardByName('${friend.name}')}>Delete</button>
                  </div> 
              </div>
          </div>
@@ -37,25 +38,32 @@ function displayFriendsList() {
 function submitFriendForm(){
     const name = document.getElementById('fname').value;
     const birthday = document.getElementById('birthday').value;
+    const createUpdateFeedbackNode = document.getElementById('create-update-feedback');
 
-    // Get the age from birthday
-    const currentYear = new Date().getFullYear();
-    const birthdayYear = new Date(birthday).getFullYear();
-    const age = currentYear - birthdayYear;
+    if (name !== null && name !== "" && birthday !== "") {
+        // Get the age from birthday
+        const currentYear = new Date().getFullYear();
+        const birthdayYear = new Date(birthday).getFullYear();
+        const age = currentYear - birthdayYear;
 
-    // Save the details in a friendsList variable which is also stored in the local storage of the browser
-    const newFriend = {
-        name: name,
-        birthday: birthday,
-        age: age
-    };
+        // Save the details in a friendsList variable which is also stored in the local storage of the browser
+        const newFriend = {
+            name: name,
+            birthday: birthday,
+            age: age
+        };
 
-    // Add the new friend as an item in the friendsList []
-    friendsList.push(newFriend);
-    saveFriendsList(friendsList)
+        // Add the new friend as an item in the friendsList []
+        friendsList.push(newFriend);
+        saveFriendsList(friendsList);
 
-    console.log(localStorage.getItem('friendsList'))
-    displayFriendsList()
+        console.log(localStorage.getItem('friendsList'));
+        createUpdateFeedbackNode.innerHTML = "";
+
+        displayFriendsList()
+    } else {
+        createUpdateFeedbackNode.innerHTML = "Please fill out all the fields.";
+    }
 }
 
 displayFriendsList()
