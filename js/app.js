@@ -32,7 +32,9 @@ function displayFriendsList() {
          </div>
      </div>
      `
-     ) 
+    )
+    getTotalNumberOfFriends(); 
+    getTotalFriendsAge();
  }
 
 function submitFriendForm(){
@@ -87,4 +89,19 @@ function sortByAge(arrayToSort){
     ageSorted? arrayToSort.sort((a, b) => b.age - a.age) : arrayToSort.sort((a, b) => a.age - b.age)
     ageSorted = !ageSorted
     displayFriendsList()
+}
+
+function getTotalNumberOfFriends() {
+    let total = friendsList.length;
+    const friendsTotalNode = document.getElementById("total-friend");
+    friendsTotalNode.innerHTML = total;
+}
+
+function getTotalFriendsAge() {
+    const friendsTotalAgeNode = document.getElementById("total-age");
+
+    const totalAge = friendsList.reduce((prevVal, currVal) => {
+        return prevVal + currVal.age;
+    }, 0);
+    friendsTotalAgeNode.innerHTML = totalAge;
 }

@@ -68,3 +68,45 @@ function deleteByIndex() {
         console.log(error);
     }
 }
+
+function deleteLastFriend(){
+    try{
+        const deleteLastIndexFeedbackNode = document.getElementById("delete-feedback-last");
+        if(friendsList.length > 0 ) {
+            friendsList.pop();
+            saveFriendsList(friendsList);
+            friendsList = JSON.parse(localStorage.getItem('friendsList')) || [];
+            displayFriendsList();
+            deleteLastIndexFeedbackNode.innerHTML = 'Last added friend deleted successfully.';
+        } else {
+            deleteLastIndexFeedbackNode.innerHTML = 'Friends list is empty.';
+        }
+
+        setTimeout(() => {
+            deleteLastIndexFeedbackNode.innerHTML = "";
+        }, 2500);
+    } catch(error){
+        console.error(error)
+    }
+}
+
+function deleteFirstFriend() {
+    try{
+        const deleteFirstIndexFeedbackNode = document.getElementById("delete-feedback-first");
+        if(friendsList.length > 0 ) {
+            friendsList.shift();
+            saveFriendsList(friendsList);
+            friendsList = JSON.parse(localStorage.getItem('friendsList')) || [];
+            displayFriendsList();
+            deleteFirstIndexFeedbackNode.innerHTML = 'First added friend deleted successfully.';
+        } else {
+            deleteFirstIndexFeedbackNode.innerHTML = 'Friends list is empty.';
+        }
+
+        setTimeout(() => {
+            deleteFirstIndexFeedbackNode.innerHTML = "";
+        }, 2500);
+    } catch(error){
+        console.error(error)
+    }
+}

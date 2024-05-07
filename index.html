@@ -25,6 +25,7 @@
         <div class="bg-primary d-flex">
             <div class=" py-2 px-4 flex-shrink-1 p-1">
                 <h3>List of friends</h3>
+                <p>Total number of friends: <b><span id="total-friend"> </span></b></p>
                 <div id="friend-container" class="">
                     <!-- Mapped cards -->
                 </div>
@@ -55,7 +56,12 @@
                     </div>
 
                     <div id="read">
-                        <p>Read</p>
+                        <div>
+                            <h4>reduce()</h4>
+                            <div class="border w-50">
+                                <p>Total age of friends: <span id="total-age"></span> years.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="delete">
@@ -77,6 +83,22 @@
                                 <input type="number" id="delindex" name="delindex" required>
                                 <button onclick={deleteByIndex()}>Delete</button>
                                 <b><p id="delete-feedback-index"></p></b>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>pop()</h4>
+                            <div class="border w-50">
+                                <h5>Delete by the last added friend.</h5>
+                                <button onclick={deleteLastFriend()}>Delete</button>
+                                <b><p id="delete-feedback-last"></p></b>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>shift()</h4>
+                            <div class="border w-50">
+                                <h5>Delete by the first added friend.</h5>
+                                <button onclick={deleteFirstFriend()}>Delete</button>
+                                <b><p id="delete-feedback-first"></p></b>
                             </div>
                         </div>
                     </div>
