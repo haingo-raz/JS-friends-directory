@@ -9,7 +9,7 @@ Users can:
  * Automatically get age from birthday
  * Get the total number of friends
  * Get the total age of all friends
- * Get the minimim age of friends
+ * Get the minimum age of friends
  * Get the maximum age of friends
  * Get average age of friends
  * Get the friend(s) who has the closest upcoming birthday

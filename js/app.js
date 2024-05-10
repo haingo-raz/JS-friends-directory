@@ -35,6 +35,8 @@ function displayFriendsList() {
     )
     getTotalNumberOfFriends(); 
     getTotalFriendsAge();
+    getMinimumFriendsAge();
+    getMaximumFriendsAge();
  }
 
 function submitFriendForm(){
@@ -98,10 +100,44 @@ function getTotalNumberOfFriends() {
 }
 
 function getTotalFriendsAge() {
-    const friendsTotalAgeNode = document.getElementById("total-age");
+    try {
+        const friendsTotalAgeNode = document.getElementById("total-age");
 
-    const totalAge = friendsList.reduce((prevVal, currVal) => {
-        return prevVal + currVal.age;
-    }, 0);
-    friendsTotalAgeNode.innerHTML = totalAge;
+        const totalAge = friendsList.reduce((prevVal, currVal) => {
+            return prevVal + currVal.age;
+        }, 0);
+        friendsTotalAgeNode.innerHTML = totalAge;
+    } catch(error) {
+        console.error(error);
+    }
+}
+
+function getMinimumFriendsAge() {
+    try {
+        const friendsMinimumAgeNode = document.getElementById("minimum-age");
+
+        // Return only the smallest age from friendsList
+        const minimumAge = friendsList.reduce((prevVal, currVal) => {
+            return Math.min(prevVal, currVal.age);
+        }, Infinity);
+        friendsMinimumAgeNode.innerHTML = minimumAge;
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+
+function getMaximumFriendsAge() {
+    try {
+        const friendsMaximumAgeNode = document.getElementById("maximum-age");
+
+        // Return only the smallest age from friendsList
+        const maximumAge = friendsList.reduce((prevVal, currVal) => {
+            return Math.max(prevVal, currVal.age);
+        }, 0);
+        friendsMaximumAgeNode.innerHTML = maximumAge;
+    }
+    catch(error){
+        console.error(error);
+    }
 }
