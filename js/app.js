@@ -37,6 +37,9 @@ function displayFriendsList() {
     getTotalFriendsAge();
     getMinimumFriendsAge();
     getMaximumFriendsAge();
+    getAverageFriendsAge();
+    getFriendsWithLongestName();
+    getFriendsWithShortestName();
  }
 
 function submitFriendForm(){
@@ -141,3 +144,49 @@ function getMaximumFriendsAge() {
         console.error(error);
     }
 }
+
+function getAverageFriendsAge() {
+    try {
+        const friendsAverageAgeNode = document.getElementById("average-age");
+
+        // Divide the total age by the number of friends in the friendsList
+        const averageAge = friendsList.reduce((prevVal, currVal) => {
+            return prevVal + currVal.age;
+        }, 0) / friendsList.length;
+        friendsAverageAgeNode.innerHTML = averageAge;
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+
+function getFriendsWithLongestName() {
+    try {
+        const friendsLongestNameNode = document.getElementById("longest-name");
+
+        // Return the friend with the longest name
+        const friendDetails = friendsList.reduce((prevVal, currVal) => {
+            return prevVal.name.length > currVal.name.length ? prevVal : currVal;
+        });
+        friendsLongestNameNode.innerHTML = friendDetails.name;
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+
+function getFriendsWithShortestName() {
+    try {
+        const friendsShortestNameNode = document.getElementById("shortest-name");
+
+        // Return the friend with the shortest name
+        const friendDetails = friendsList.reduce((prevVal, currVal) => {
+            return prevVal.name.length < currVal.name.length ? prevVal : currVal;
+        });
+        friendsShortestNameNode.innerHTML = friendDetails.name;
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+

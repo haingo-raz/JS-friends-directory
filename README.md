@@ -19,13 +19,13 @@ Users can:
  * Filter the friends by age
  * Identify friends with unique ages
  * Display a random friend
- * Find friends with palindrom names (same forwards and backwards)
+ * Find friends with palindrome names (same forwards and backwards)
  * Find friends with the most common birthday
  * Display the friend with the longest name
  * Display the friend with the shortest name
  * Find friends with consecutive ages
 
- * Update the detail of a user
+ * Update the detail of a friend
 
  * Delete a user by name
  * Delete a user by index
