@@ -10,10 +10,9 @@
 <body>
     <!-- Main app -->
     <div class="container">
-        <div class="bg-primary row my-3 py-2 px-4">
+        <div class="bg-primary row my-3 py-4 px-4">
             <div>
-               <button onclick="sortByStringDescription(friendsList)">Name</button>
-                <button onclick="sortByAge(friendsList)">Age</button> 
+                <a href="/" class="text-dark">Friends Directory </a>
             </div>
             
             <div class="row ml-auto">
@@ -26,17 +25,19 @@
             <div class=" py-2 px-4 flex-shrink-1 p-1">
                 <h3>List of friends</h3>
                 <p>Total number of friends: <b><span id="total-friend"> </span></b></p>
-                <div id="friend-container" class="">
+                <div>
+                    <button onclick="sortByStringDescription(friendsList)" title="Filter by name">Name</button>
+                     <button onclick="sortByAge(friendsList)" title="Filter by age">Age</button> 
+                </div>
+                <div id="friend-container" class="mt-4">
                     <!-- Mapped cards -->
                 </div>
-                
-    
             </div>
             <div class="flex-grow-1">
                 <div class="mt-2">
-                    <button onclick={initDisplay()}>Create / Update</button>
-                    <button onclick={displayReadSection()}>Read</button>
-                    <button onclick={displayDeleteSection()}>Delete</button>
+                    <button onclick={initDisplay()}>Create / Update operations</button>
+                    <button onclick={displayReadSection()}>Read operations</button>
+                    <button onclick={displayDeleteSection()}>Delete operations</button>
                 </div>
 
                 <!--Display section depending on which action has been chosen at the top-->
@@ -58,38 +59,38 @@
                     <div id="read">
                         <div>
                             <h4>reduce()</h4>
-                            <div class="border w-50">
-                                <p>Total age of friends: <span id="total-age"></span> years.</p>
+                            <div class="border w-50 p-1">
+                                <p>Total age of friends: <b><span id="total-age"></span></b> years.</p>
                             </div>
                         </div>
                         <div>
                             <h4>reduce()</h4>
-                            <div class="border w-50">
-                                <p>Youngest friend age: <span id="minimum-age"></span> years old.</p>
+                            <div class="border w-50 p-1">
+                                <p>Youngest friend age: <b><span id="minimum-age"></span></b> years old.</p>
                             </div>
                         </div>
                         <div>
                             <h4>reduce()</h4>
-                            <div class="border w-50">
-                                <p>Oldest friend age: <span id="maximum-age"></span> years old.</p>
+                            <div class="border w-50 p-1">
+                                <p>Oldest friend age: <b><span id="maximum-age"></span></b> years old.</p>
                             </div>
                         </div>
                         <div>
                             <h4>reduce()</h4>
-                            <div class="border w-50">
-                                <p>Average age of friends: <span id="average-age"></span> years old.</p>
+                            <div class="border w-50 p-1">
+                                <p>Average age of friends: <b><span id="average-age"></span></b> years old.</p>
                             </div>
                         </div>
                         <div>
                             <h4>reduce()</h4>
-                            <div class="border w-50">
-                                <p>Friend with the longest name: <span id="longest-name"></span></p>
+                            <div class="border w-50 p-1">
+                                <p>Friend with the longest name: <b><span id="longest-name"></span></b></p>
                             </div>
                         </div>
                         <div>
                             <h4>reduce()</h4>
-                            <div class="border w-50">
-                                <p>Friend with the shortest name: <span id="shortest-name"></span></p>
+                            <div class="border w-50 p-1">
+                                <p>Friend with the shortest name: <b><span id="shortest-name"></span></b></p>
                             </div>
                         </div>
                     </div>
@@ -97,7 +98,7 @@
                     <div id="delete">
                         <div>
                             <h4>find() & filter()</h4>
-                            <div class="border w-50">
+                            <div class="border w-50 p-1">
                                 <h5>Delete by name</h5>
                                 <label for="delname">Enter name:</label>
                                 <input type="text" id="delname" name="delname" required>
@@ -107,7 +108,7 @@
                         </div>
                         <div>
                             <h4>splice()</h4>
-                            <div class="border w-50">
+                            <div class="border w-50 p-1">
                                 <h5>Delete by index</h5>
                                 <label for="delindex">Enter the index:</label>
                                 <input type="number" id="delindex" name="delindex" required>
@@ -117,7 +118,7 @@
                         </div>
                         <div>
                             <h4>pop()</h4>
-                            <div class="border w-50">
+                            <div class="border w-50 p-1">
                                 <h5>Delete by the last added friend.</h5>
                                 <button onclick={deleteLastFriend()}>Delete</button>
                                 <b><p id="delete-feedback-last"></p></b>
@@ -125,7 +126,7 @@
                         </div>
                         <div>
                             <h4>shift()</h4>
-                            <div class="border w-50">
+                            <div class="border w-50 p-1">
                                 <h5>Delete by the first added friend.</h5>
                                 <button onclick={deleteFirstFriend()}>Delete</button>
                                 <b><p id="delete-feedback-first"></p></b>
